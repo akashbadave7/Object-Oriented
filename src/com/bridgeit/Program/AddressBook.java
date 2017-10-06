@@ -1,23 +1,8 @@
 package com.bridgeit.Program;
 import com.bridgeit.Utility.*;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
+
 import java.io.IOException;
-import java.text.ParsePosition;
-import java.util.Collections;
-import java.util.Iterator;
 import java.util.Scanner;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
-import com.bridgeit.Utility.SortAddressBook;
-import com.bridgeit.Utility.Utility;
 
 public class AddressBook 
 {
@@ -25,7 +10,7 @@ public class AddressBook
 	{
 		try
 		{
-			AddressBookUtility a = new AddressBookUtility();
+			AddressBookUtility addressbook = new AddressBookUtility();
 			Scanner scan = new Scanner(System.in);
 			while(true)
 			{	
@@ -39,15 +24,15 @@ public class AddressBook
 				int choice = scan.nextInt();
 				switch(choice)
 				{
-				case 1:	 	a.addPerson();
+				case 1:	 	addressbook.addPerson();
 				break;
-				case 2 :	a.deletePerson();
+				case 2 :	addressbook.deletePerson();
 				break;
-				case 3 : 	a.editDetails();
+				case 3 : 	addressbook.editDetails();
 				break;
-				case 4 :	a.sort();
+				case 4 :	addressbook.sort();
 				break;
-				case 5 :	a.displayDetails();
+				case 5 :	addressbook.displayDetails();
 				break;
 				default : return;
 				}

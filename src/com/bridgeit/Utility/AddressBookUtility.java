@@ -15,6 +15,11 @@ import org.json.simple.parser.ParseException;
 
 public class AddressBookUtility
 {
+	/**
+	 * @author Akash
+	 * To edit details of person
+	 */
+	@SuppressWarnings("unchecked")
 	public  void editDetails() 
 	{
 		try
@@ -39,7 +44,7 @@ public class AddressBookUtility
 						{
 							System.out.println("What you want to edit");
 							String edit = scan.nextLine();
-							System.out.println("Enter the new "+edit +"to update.");
+							System.out.println("Enter the new "+edit +" to update.");
 							String change = scan.nextLine();
 							obj.remove(edit);
 							obj.put(edit, change);
@@ -55,6 +60,8 @@ public class AddressBookUtility
 					FileWriter fw = new FileWriter(file);
 			        fw.write(JSONArray.toJSONString(array));
 			        fw.flush();
+			        fw.close();
+			       
 				}
 				else
 				{
@@ -65,7 +72,7 @@ public class AddressBookUtility
 			{
 				System.out.println("File Does not exits");
 			}
-			
+	
 		}
 		catch(Exception e)
 		{
@@ -73,6 +80,11 @@ public class AddressBookUtility
 		}
 	}
 
+	/**
+	 * @author Akash
+	 * To sort the address book 
+	 */
+	@SuppressWarnings("unchecked")
 	public void sort() 
 	{
 		try
@@ -88,16 +100,19 @@ public class AddressBookUtility
 					JSONArray array = (JSONArray) parser.parse(fr); 
 					System.out.println("Enter string through which you want to sort address book");
 					String str = scan.nextLine();
-					Collections.sort(array,new SortAddressBook(str));
-					Iterator itr=array.iterator(); 
+					Collections.sort(array,new Sort(str));
+					Iterator<?> itr=array.iterator(); 
 					while (itr.hasNext())
 					{
 						JSONObject obj1 = (JSONObject) itr.next();
-						System.out.println(obj1);
+						System.out.println("First Name : "+obj1.get("Firstname")+" "+"Last Name : "+obj1.get("Lastname")+" "+"Address: "+obj1.get("Address")+" "+"City : " +obj1.get("City")+" "+"State : "+obj1.get("State")+" "
+								+"Zip: "+obj1.get("Zip")+" "+"Mobile: "+obj1.get("Mobile"));
 					}
 					FileWriter fw = new FileWriter(file);
 			        fw.write(JSONArray.toJSONString(array));
 			        fw.flush();
+			        fw.close();
+			       
 				}
 				else
 				{
@@ -116,6 +131,12 @@ public class AddressBookUtility
 		}
 	}
 
+	/**
+	 * @throws IOException
+	 * @throws ParseException
+	 * @author Akash
+	 * to delete the record from address book
+	 */
 	public void deletePerson() throws IOException, ParseException 
 	{
 		try
@@ -131,7 +152,7 @@ public class AddressBookUtility
 					JSONArray array = (JSONArray) parser.parse(fr);
 					System.out.println("Enter the user");
 					String name = scan.nextLine();
-					Iterator iterator = array.iterator();
+					Iterator<?> iterator = array.iterator();
 					boolean flag=false;
 				  	while (iterator.hasNext())
 				  	{
@@ -154,12 +175,13 @@ public class AddressBookUtility
 				  		FileWriter fw = new FileWriter(file);
 				        fw.write(JSONArray.toJSONString(array));
 				        fw.flush();
+				        fw.close();
 				  	}
 				  	else
 				  	{
 				  		System.out.println("File does not haveedit permission");
 				  	}
-			  	
+				  	
 				}
 				else
 				{
@@ -177,6 +199,13 @@ public class AddressBookUtility
 		}
 	}
 
+	/**
+	 * @throws IOException
+	 * @throws ParseException
+	 * @author Akash
+	 * To add new record in the addresss book
+	 */
+	@SuppressWarnings("unchecked")
 	public void addPerson() throws IOException, ParseException 
 	{
 		try
@@ -219,6 +248,8 @@ public class AddressBookUtility
 			        FileWriter fw = new FileWriter(file);
 			        fw.write(JSONArray.toJSONString(array));
 			        fw.flush();
+			        fw.close();
+			       
 				}
 			
 				else
@@ -237,6 +268,12 @@ public class AddressBookUtility
 		}
 	}
 
+	/**
+	 * @throws IOException
+	 * @throws ParseException
+	 * @author Akash
+	 * To print the records from address book
+	 */
 	public void displayDetails() throws IOException, ParseException 
 	{
 		try

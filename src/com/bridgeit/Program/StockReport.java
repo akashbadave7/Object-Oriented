@@ -10,7 +10,6 @@ public class StockReport {
 
 	public static void main(String[] args) throws IOException, ParseException 
 	{
-		Utility u = new Utility();
-		u.calculateStockReport();
+		Utility.calculateStockReport();
 	}
 }

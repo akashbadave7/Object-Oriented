@@ -12,6 +12,10 @@ import org.json.simple.parser.JSONParser;
 
 public class ClinicUtility 
 {
+	/**
+	 * @author Akash
+	 * to print patient details
+	 */
 	public static void patientDetails() 
 	{
 		try
@@ -25,7 +29,7 @@ public class ClinicUtility
 					FileReader fr = new FileReader(file);
 					JSONParser parser = new JSONParser();
 					JSONArray array = (JSONArray) parser.parse(fr);
-					Iterator itr = array.iterator();
+					Iterator<?> itr = array.iterator();
 					//System.out.println("Enter doctor id");
 					//String id = scan.nextLine();
 					while (itr.hasNext())
@@ -55,6 +59,11 @@ public class ClinicUtility
 		
 	}
 
+	/**
+	 * @author Akash
+	 * to new patients
+	 */
+	@SuppressWarnings("unchecked")
 	public static void addPatient() 
 	{
 		try
@@ -77,7 +86,7 @@ public class ClinicUtility
 			        String mob = scan.nextLine();
 			        System.out.println("Enter age:");
 			        String age = scan.nextLine();
-			        Iterator itr = array.iterator();
+			        Iterator<?> itr = array.iterator();
 					//System.out.println("Enter doctor id");
 					//String id = scan.nextLine();
 					while (itr.hasNext())
@@ -102,6 +111,7 @@ public class ClinicUtility
 			        FileWriter fw = new FileWriter(file);
 			        fw.write(JSONArray.toJSONString(array));
 			        fw.flush();
+			        fw.close();
 					
 				}
 				else
@@ -121,6 +131,10 @@ public class ClinicUtility
 		
 	}
 
+	/**
+	 * @author Akash
+	 * to print doctors details
+	 */
 	public static void doctorsDetails() 
 	{
 		try
@@ -134,7 +148,7 @@ public class ClinicUtility
 					FileReader fr = new FileReader(file);
 					JSONParser parser = new JSONParser();
 					JSONArray array = (JSONArray) parser.parse(fr);
-					Iterator itr = array.iterator();
+					Iterator <?>itr = array.iterator();
 					//System.out.println("Enter doctor id");
 					//String id = scan.nextLine();
 					while (itr.hasNext())
@@ -166,6 +180,11 @@ public class ClinicUtility
 		
 	}
 
+	/**
+	 * @author Akash
+	 * to add new doctors records
+	 */
+	@SuppressWarnings("unchecked")
 	public static void addDoctor() 
 	{
 		try
@@ -189,7 +208,7 @@ public class ClinicUtility
 			        String specialization = scan.nextLine();
 			        System.out.println("Enter Availability:");
 			        String availability = scan.nextLine();
-			        Iterator itr = array.iterator();
+			        Iterator<?> itr = array.iterator();
 			    	while (itr.hasNext())
 					{
 						JSONObject obj = (JSONObject) itr.next();
@@ -212,6 +231,7 @@ public class ClinicUtility
 			        FileWriter fw = new FileWriter(file);
 			        fw.write(JSONArray.toJSONString(array));
 			        fw.flush();
+			        fw.close();
 				}
 			
 				else
@@ -223,6 +243,7 @@ public class ClinicUtility
 			{
 				System.out.println("File not exits on disk.");
 			}
+			
 		}
 		catch(Exception e)
 		{
@@ -231,6 +252,10 @@ public class ClinicUtility
 		
 	}
 
+	/**
+	 * @author Akash
+	 * to get appointment details
+	 */
 	public void appointmentDetails() 
 	{
 		try
@@ -244,7 +269,7 @@ public class ClinicUtility
 					JSONParser parser = new JSONParser();
 					FileReader doctor = new FileReader(file);
 					JSONArray docArray = (JSONArray) parser.parse(doctor);
-					Iterator iterator = docArray.iterator();
+					Iterator<?> iterator = docArray.iterator();
 					System.out.println("Enter Doctor id to view appintment");
 					String id = scan.next();
 					boolean flag = false;
@@ -255,7 +280,7 @@ public class ClinicUtility
 						if(id1.equals(id))
 						{
 							JSONArray patient1 =(JSONArray) obj.get("Patient");
-							Iterator itr = patient1.iterator();
+							Iterator<?> itr = patient1.iterator();
 							while(itr.hasNext())
 							{
 								JSONObject patient = (JSONObject) itr.next();

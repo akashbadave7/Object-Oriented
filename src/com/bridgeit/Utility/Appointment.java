@@ -1,10 +1,8 @@
 package com.bridgeit.Utility;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -12,10 +10,14 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 public class Appointment 
 {
+	/**
+	 * @author Akash
+	 * to fix appointment with doctor
+	 */
+	@SuppressWarnings("unchecked")
 	public void fixAppointment()
 	{
 		try
@@ -35,7 +37,7 @@ public class Appointment
 					JSONArray patArray = (JSONArray) parser.parse(patient);
 					
 					//System.out.println(patArray.size());
-					Iterator iterator = patArray.iterator();
+					Iterator<?> iterator = patArray.iterator();
 					System.out.println("Enter the Patient id to get appointment");
 					String pid = scan.nextLine();
 					boolean flag=false;
@@ -47,7 +49,7 @@ public class Appointment
 						{
 							System.out.println("Enter the doctor id to assign patient");
 							String did = scan.nextLine();
-							Iterator iterator1 = docArray.iterator();
+							Iterator<?> iterator1 = docArray.iterator();
 							
 							while (iterator1.hasNext())
 							{
@@ -68,6 +70,7 @@ public class Appointment
 										FileWriter write = new FileWriter(file);
 										write.write(JSONValue.toJSONString(docArray));
 										write.flush();
+										write.close();
 										flag = true;
 										break;
 									}

@@ -5,10 +5,14 @@ import java.util.Comparator;
 
 import org.json.simple.JSONObject;
 
-public class SortAddressBook implements Comparator<Object> 
+/**
+ * @author akash
+ *
+ */
+public class Sort implements Comparator<Object> 
 {
 	String str ;
-	public SortAddressBook(String str) 
+	public Sort(String str) 
 	{
 		this.str =str;
 	}

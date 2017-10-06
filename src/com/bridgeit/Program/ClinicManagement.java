@@ -1,17 +1,6 @@
 package com.bridgeit.Program;
 import com.bridgeit.Utility.*;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.util.Iterator;
 import java.util.Scanner;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-
-import com.bridgeit.Utility.Appointment;
-import com.bridgeit.Utility.*;
 public class ClinicManagement 
 {
 	public static void main(String[] args) 
@@ -33,19 +22,19 @@ public class ClinicManagement
 				int choice = scan.nextInt();
 				switch(choice)
 				{
-				case 1 :	 u.addDoctor();
+				case 1 :	 ClinicUtility.addDoctor();
 				break;
-				case 2 :	u.addPatient();
+				case 2 :	ClinicUtility.addPatient();
 				break;
 				case 3 :	 System.out.println("Enter whose details you want to see press D for doctor and P for Patient ");
 							char ch = scan.next().charAt(0);
 							if(ch=='D')
 							{
-								u.doctorsDetails();
+								ClinicUtility.doctorsDetails();
 							}
 							if(ch=='P')
 							{
-								u.patientDetails();
+								ClinicUtility.patientDetails();
 							}
 				break;
 				case 5 	:	u.appointmentDetails();

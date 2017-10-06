@@ -1,7 +1,6 @@
 package com.bridgeit.Program;
 
 import java.util.Date;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
@@ -28,7 +27,7 @@ public class RegularExpression {
 		str=str.replace("xxxxxxxxxx", mob);
 		str=str.replace("01/01/2016", d1[0]);
 		System.out.println(str);
-		
+		scan.close();
 	}
 
 }

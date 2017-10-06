@@ -1,18 +1,8 @@
 package com.bridgeit.Program;
 import com.bridgeit.Utility.Utility;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Scanner;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
-import org.json.simple.parser.JSONParser;
+import java.io.IOException;
+import java.util.Scanner;
 import org.json.simple.parser.ParseException;
 
 public class CommercialDataProcessing
